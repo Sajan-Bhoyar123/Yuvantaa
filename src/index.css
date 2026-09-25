@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  body {
+    background-color: #FFFFFF;
+    color: #111827;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Accessible touch targets on mobile devices */
+  button, a {
+    touch-action: manipulation;
+  }
+
+  /* Respect OS & Browser Reduced Motion Preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==================================================
+   TYPOGRAPHY HIERARCHY LEVELS
+   ================================================== */
+@layer components {
+  .font-display {
+    font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    color: #111827;
+  }
+
+  .font-h1 {
+    font-size: clamp(1.85rem, 4.2vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #111827;
+  }
+
+  .font-h2 {
+    font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: #111827;
+  }
+
+  .font-h3 {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: #111827;
+  }
+
+  .text-body-lg {
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    line-height: 1.75;
+    color: #64748B;
+  }
+
+  .text-body {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #64748B;
+  }
+
+  .text-body-sm {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #64748B;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FF1E56;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+/* ==================================================
+   DESIGN TOKENS & UTILITY CLASSES
+   ================================================== */
+@layer utilities {
+  /* Signature Brand Gradient: Orange -> Coral/Red -> Magenta */
+  .gradient-text {
+    background: linear-gradient(135deg, #FF6026 0%, #FF1E56 50%, #D80075 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  /* Dark Surface Token */
+  .dark-surface {
+    background-color: #071321;
+    color: #FFFFFF;
+  }
+
+  /* Soft Border Tokens */
+  .soft-border {
+    border: 1px solid rgba(226, 232, 240, 0.9);
+  }
+  .soft-border-dark {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Rounded Panel Token */
+  .rounded-panel {
+    border-radius: 1.75rem;
+  }
+
+  /* Premium Controlled Shadow */
+  .premium-shadow {
+    box-shadow: 0 12px 32px -4px rgba(7, 19, 33, 0.07), 0 4px 12px -2px rgba(7, 19, 33, 0.03);
+  }
+
+  /* Signature Deep Navy Panel with controlled border */
+  .signature-panel {
+    background: linear-gradient(180deg, #071321 0%, #040B13 100%);
+    color: #FFFFFF;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Sweeping Curve Glow */
+  .signature-curve-glow {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(255, 30, 86, 0.22) 0%, rgba(255, 96, 38, 0.12) 35%, transparent 65%);
+  }
+
+  /* Circular Icon Gradient Ring */
+  .icon-circle-gradient {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 1.5px;
+    background: linear-gradient(135deg, #FF6026 0%, #FF1E56 50%, #D80075 100%);
+  }
+  .icon-circle-gradient > div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 9999px;
+    background-color: #071321;
+    color: #FFFFFF;
+  }
+
+  /* Branded Decorative Divider */
+  .brand-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .brand-divider::before,
+  .brand-divider::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #FF6026 50%, #FF1E56 100%);
+  }
+  .brand-divider::after {
+    background: linear-gradient(90deg, #FF1E56 0%, #D80075 50%, transparent 100%);
+  }
+}
